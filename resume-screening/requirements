@@ -1,0 +1,7 @@
+Flask
+Flask-Login
+python-dotenv
+PyPDF2
+openai
+pandas
+numpy

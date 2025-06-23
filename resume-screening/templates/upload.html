@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+  :root {
+    --lavender-dark: #2d2b40;
+    --lavender-primary: #9370DB;
+    --lavender-light: #b19cd9;
+    --lavender-lighter: #d7cce9;
+    --lavender-text: #e6e6fa;
+    --lavender-shadow: rgba(147, 112, 219, 0.25);
+  }
+
+  body {
+    background-color: var(--lavender-dark);
+    color: var(--lavender-text);
+  }
+
+  .card {
+    background-color: #36314e;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px var(--lavender-shadow);
+  }
+
+  .form-control, .form-control:focus {
+    background-color: #2a2538;
+    border: 1px solid var(--lavender-light);
+    color: var(--lavender-text);
+    border-radius: 8px;
+    transition: all 0.3s;
+  }
+
+  .form-control:focus {
+    box-shadow: 0 0 0 3px var(--lavender-shadow);
+    border-color: var(--lavender-primary);
+  }
+
+  .form-text {
+    color: var(--lavender-lighter);
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+
+  .form-label {
+    color: var(--lavender-lighter);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .btn-primary {
+    background-color: var(--lavender-primary);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+
+  .btn-primary:hover {
+    background-color: #8067c3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--lavender-shadow);
+  }
+
+  .btn-outline-secondary {
+    color: var(--lavender-lighter);
+    border-color: var(--lavender-light);
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+
+  .btn-outline-secondary:hover {
+    background-color: var(--lavender-light);
+    color: var(--lavender-dark);
+    transform: translateY(-2px);
+  }
+
+  h2 {
+    color: var(--lavender-lighter);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--lavender-primary);
+  }
+
+  input[type="file"]::file-selector-button {
+    background-color: #4a426a;
+    color: var(--lavender-text);
+    border: 1px solid var(--lavender-light);
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin-right: 10px;
+    transition: all 0.3s;
+  }
+
+  input[type="file"]::file-selector-button:hover {
+    background-color: var(--lavender-primary);
+  }
+</style>
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card p-4">
+        <h2 class="mb-4 text-center">Upload Resumes</h2>
+        <form method="POST" enctype="multipart/form-data">
+          <div class="mb-4">
+            <label for="resumes" class="form-label">Upload Multiple Resumes</label>
+            <input type="file" class="form-control" id="resumes" name="resumes" multiple accept=".pdf" required>
+            <div class="form-text">Select multiple PDF files to analyze against the job description.</div>
+          </div>
+          
+          <div class="mb-4">
+            <label for="job_description" class="form-label">Job Description</label>
+            <textarea class="form-control" id="job_description" name="job_description" rows="6" required placeholder="Paste the full job description here..."></textarea>
+            <div class="form-text">Enter detailed job requirements to find the best candidate matches.</div>
+          </div>
+          
+          <div class="d-grid gap-3 mt-4">
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-search me-2"></i> Analyze Resumes
+            </button>
+            <a href="{{ url_for('dashboard') }}" class="btn btn-outline-secondary">
+              <i class="fas fa-arrow-left me-2"></i> Back to Dashboard
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

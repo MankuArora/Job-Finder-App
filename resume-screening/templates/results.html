@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card p-4">
+    <h2 class="mb-4">Top 10 Resume Matches</h2>
+    
+    <div class="mb-4">
+        <h5>Download Merged PDF</h5>
+        <a href="{{ url_for('download_file', filename=merged_path) }}" class="btn btn-success">Download All Resumes (Merged)</a>
+    </div>
+    
+    <div class="accordion" id="resumeAccordion">
+        {% for result in results %}
+        <div class="accordion-item resume-card">
+            <h2 class="accordion-header">
+                <button class="accordion-button {% if loop.index > 1 %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}">
+                    <strong>{{ filenames[result.resume_idx] }}</strong> - Match Score: {{ result.score }}%
+                </button>
+            </h2>
+            <div id="collapse{{ loop.index }}" class="accordion-collapse collapse {% if loop.index == 1 %}show{% endif %}" data-bs-parent="#resumeAccordion">
+                <div class="accordion-body">
+                    <h5>Strengths:</h5>
+                    <ul>
+                        {% for strength in result.strengths %}
+                        <li>{{ strength }}</li>
+                        {% endfor %}
+                    </ul>
+                    
+                    <h5>Potential Gaps:</h5>
+                    <ul>
+                        {% for gap in result.gaps %}
+                        <li>{{ gap }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div class="mt-4">
+        <a href="{{ url_for('upload') }}" class="btn btn-primary">Upload New Resumes</a>
+        <a href="{{ url_for('dashboard') }}" class="btn btn-outline-secondary">Back to Dashboard</a>
+    </div>
+</div>
+{% endblock %}

@@ -54,15 +54,15 @@ A recruiter that never sleeps, never judges, and never misses great talent.
 
 To redefine hiring in India using truly autonomous AI agents that can independently assess, engage, and evaluate talent — making hiring faster, fairer, and future-ready.
 
-Layer                Tech
-Frontend             React.js / Next.js
-Backend              Node.js / FastAPl
-Al                   OpenAl GPT-4, LangChain, LLM Agents, Whisper
-Agentic Al           Multi-step decision-making agents
-Generative Al        JD parsing, interview generation, feedback reports
-Voice & Sentiment    Real-time audio analysis
-Database             PostgreSQL / MongoDB
-Infra                Vercel / AWS
+Layer:-                 Tech
+Frontend:-              React.js / Next.js
+Backend:-               Node.js / FastAPl
+Al:-                    OpenAl GPT-4, LangChain, LLM Agents, Whisper
+Agentic Al:-            Multi-step decision-making agents
+Generative Al:-         JD parsing, interview generation, feedback reports
+Voice & Sentiment:-     Real-time audio analysis
+Database:-              PostgreSQL / MongoDB
+Infra:-                 Vercel / AWS
 
 Current Status
 	•	 Prototype Ready
